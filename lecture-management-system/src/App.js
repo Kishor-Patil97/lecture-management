@@ -1,9 +1,8 @@
-import Calendar from "./components/calendar/Calendar";
 
 function App() {
   return (
     <div className="App">
-      <Calendar /> 
+      <div>Lecture Management System</div>
     </div>
   );
 }
