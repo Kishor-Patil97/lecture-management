@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AddEvents/>}/>
+        <Route path="/addEvent" element={<AddEvents/>}/>
       </Routes>
     </BrowserRouter>
 
