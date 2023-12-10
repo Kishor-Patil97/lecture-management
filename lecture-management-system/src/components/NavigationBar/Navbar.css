@@ -1,0 +1,100 @@
+.headerbefore{
+    background-color: rgb(79, 4, 103); ;
+    width: 100%;
+  }
+  
+  header {
+      display: flex;
+      background-color:rgb(79, 4, 103);
+      width: 90vw;
+      max-width: 1160px;
+      margin: 0 auto;
+      
+    }
+  
+    .header {
+      display: flex;
+      background-color:rgb(79, 4, 103);
+      align-items: center;
+      justify-content:space-between;
+    }
+  
+    nav{
+      display: flex;
+      justify-content: right;
+      align-items: center;
+    }
+  
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0px;
+  
+    }
+    
+    nav ul li {
+      justify-content: center;
+      margin: 20px;
+      white-space: nowrap;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-family: cursive;
+      font-size: 18px;
+      
+    }
+    
+    .userProfile{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right:50px;
+      margin-left: 100px;
+    }
+  
+  
+  .userProfile p{
+    color: white;
+    font-family: cursive;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-top: 11px;
+    margin-right: 10px;
+  }
+   .userProfile .signout{
+    margin-left: 18px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+   }
+  
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+    
+      .logo {
+        margin-bottom: 10px;
+      }
+    
+      nav ul {
+        flex-direction: column;
+      }
+    
+      nav ul li {
+        margin-bottom: 10px;
+      }
+    
+      .user-profile {
+        text-align: center;
+      }
+    }
+    
