@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import './AddEvents.css';
+import {Navbar} from '../NavigationBar/Navbar'
 
  export const AddEvents = () => {
 
@@ -22,6 +23,8 @@ import './AddEvents.css';
     };
 
     return(
+        <>
+        <Navbar/>
         <div className='add-event-main'>
          <div className='add-event-title'>
             <h2>Add Blocked Dates/Events</h2>
@@ -39,7 +42,7 @@ import './AddEvents.css';
                 labelId="time-select-label"
                 id="time-simple-select"
                 value={startTime}
-                label="Start time"
+                label="Select"
                 onChange={handleStimeChange}
             >
                 <MenuItem value={9}>09:00</MenuItem>
@@ -55,7 +58,7 @@ import './AddEvents.css';
                 labelId="time-select-label"
                 id="time-simple-select"
                 value={endTime}
-                label="End time"
+                label="Select"
                 onChange={handleEtimeChange}
             >
                 <MenuItem value={11}>12:45</MenuItem>
@@ -77,7 +80,7 @@ import './AddEvents.css';
                 labelId="select-label"
                 id="simple-select"
                 value={eventType}
-                label="Event type"
+                label="Select"
                 onChange={handleEventChange}
             >
                 <MenuItem value={10}>Public Holiday</MenuItem>
@@ -106,6 +109,7 @@ import './AddEvents.css';
 
         </div>
         </div>   
+        </>
     )
 }
 
