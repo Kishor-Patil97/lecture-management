@@ -1,0 +1,21 @@
+.box {
+    /* height: 451px; */
+    position: relative;
+    width: 333px;
+    font-family: "DM Serif Text-Regular", Helvetica;
+    font-size: 25px;
+    font-weight: 400;
+    color: #000000;
+  }
+  
+  .textWrapper {
+    top: 80PX;
+    font-family: "DM Serif Text-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .optionWrapper {
+    display: flex;
+    align-items: center;
+  }
+ 
