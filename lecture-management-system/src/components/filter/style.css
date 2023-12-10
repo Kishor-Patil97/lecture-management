@@ -1,51 +1,57 @@
 .box {
-    /* height: 451px; */
-    position: relative;
-    width: 333px;
-    font-family: sans-serif;
-    font-size: 25px;
-    font-weight: 400;
-    color: #000000;
-    margin-left: 20%;
-    margin-top: 15%;
-  }
-  
-  .textWrapper {
-    top: 80PX;
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: 40px;
-  }
-  .optionWrapper {
-    display: flex;
-    align-items: center;
-    padding: 7px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #000000;
+}
 
-  .batch, .semester, .block {
-    display: flex;
-    align-items: center ;
-  }
+.div{
+  margin-bottom: 20px;
+}
 
-  .name {
-    margin-right: 35px;
-  }
+.textWrapper {
+  top: 80PX;
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+}
 
-  .button {
-    width: 100px;
-    background-color: #8D57D4;
-    color: white;
-    width: 100px;
-    background-color: #8D57D4;
-    color: white;
-    padding: 7px;
-    border: none;
-    border-radius: 4px;
-  }
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+}
 
-  .block {
-    margin-bottom: 15px;
-  }
-  .value {
-    margin-left: 20px;
-  }
+.batch,
+.semester,
+.block {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  margin-right: 35px;
+}
+
+.button {
+  width: 100px;
+  background-color: #8D57D4;
+  color: white;
+  width: 100px;
+  background-color: #8D57D4;
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+}
+
+.block {
+  margin-bottom: 15px;
+}
+
+.value {
+  margin-left: 20px;
+}

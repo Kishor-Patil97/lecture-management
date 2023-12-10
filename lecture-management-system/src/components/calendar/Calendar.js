@@ -41,19 +41,6 @@ export const Calendar = () => {
                 color: 'purple' // override!
               },
               {
-                title: 'Meeting',
-                start: '2023-12-12T10:30:00',
-                end: '2023-12-12T12:30:00'
-              },
-              {
-                title: 'Lunch',
-                start: '2023-12-12T12:00:00'
-              },
-              {
-                title: 'Meeting',
-                start: '2023-12-12T14:30:00'
-              },
-              {
                 title: 'Birthday Party',
                 start: '2023-12-13T07:00:00'
               },

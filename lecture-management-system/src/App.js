@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
 import {AddEvents} from './components/Add_events/AddEvents';
 import { Calendar } from './components/calendar/Calendar';
+import { Popup } from "./components/popup/Popup";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<AddEvents/>}/>
         <Route path="/Calendar" element={<Calendar/>}/>
+        <Route path="/Popup" element={<Popup/>}/>
       </Routes>
     </BrowserRouter>
 
