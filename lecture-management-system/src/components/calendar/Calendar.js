@@ -3,13 +3,14 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Grid } from '@mui/material';
 import { Filter } from '../filter/Filter';
+import Navbar from '../NavigationBar/Navbar';
 
 export const Calendar = () => {
   return (
     <>
-      <h1>Calendar Overview</h1 >
+      <Navbar />
       <Grid container>
-        <Grid item xs={6}>
+        <Grid item xs={6} style={{marginTop:'10px'}}>
           <FullCalendar
             plugins={[dayGridPlugin]}
             initialView='dayGridMonth'
