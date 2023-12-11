@@ -6,6 +6,8 @@ import Select from '@mui/material/Select';
 import './AddEvents.css';
 import {Navbar} from '../NavigationBar/Navbar'
 
+
+
  export const AddEvents = () => {
 
     const [eventType, setEventType] = React.useState('');
@@ -22,6 +24,10 @@ import {Navbar} from '../NavigationBar/Navbar'
         setEndTime(event.target.value);
     };
 
+    const startTimeMenu=['09:30','11:15','14:00','15:45','17:30','19:15']
+    const endTimeMenu=['11:00','12:45','15:30','17:15','19:00','20:45']
+    const eventTypeMenu=['Public Holiday', 'Campus event', 'Semester Break']
+
     return(
         <>
         <Navbar/>
@@ -32,62 +38,42 @@ import {Navbar} from '../NavigationBar/Navbar'
         <div className='add-event-options'>
             <div className='date-select'>
             <p>Date</p>
-            <input size="small"></input>
+            <input type="date" />
             </div>
             <div className='time-select'>
             <p>Time Frame</p>
-            <FormControl sx={{ m: 1, minWidth: 120}} size="small" >
-            <InputLabel id="time-select-label">Start time</InputLabel>
-            <Select
-                labelId="time-select-label"
-                id="time-simple-select"
-                value={startTime}
-                label="Select"
-                onChange={handleStimeChange}
-            >
-                <MenuItem value={9}>09:00</MenuItem>
-                <MenuItem >11:00</MenuItem>
-                <MenuItem >02:00</MenuItem>
-                <MenuItem >05:30</MenuItem>
+            <FormControl className='menu' sx={{ m: 1, minWidth: 120}} size="small" >
+            <InputLabel>Start time</InputLabel>
+            <Select  value={startTime} onChange={handleStimeChange}>
+            {startTimeMenu.map((option) => (
+            <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}
             </Select>
             </FormControl >
             <p>to</p>
-            <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
-            <InputLabel id="time-select-label">End time</InputLabel>
-            <Select
-                labelId="time-select-label"
-                id="time-simple-select"
-                value={endTime}
-                label="Select"
-                onChange={handleEtimeChange}
-            >
-                <MenuItem value={11}>12:45</MenuItem>
-                <MenuItem value={12}>02:00</MenuItem>
-                <MenuItem >05:15</MenuItem>
-                <MenuItem >08:45</MenuItem>
+            <FormControl className='menu' sx={{ m: 1, minWidth: 120 }} size="small" >
+            <InputLabel>End time</InputLabel>
+            <Select value={endTime} onChange={handleEtimeChange}>
+            {endTimeMenu.map((option) => (
+            <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))} 
+            </Select>
+            </FormControl>
+            </div>
+            <div className='event-type-select'>
+            <p>Event Type</p>
+            <FormControl className='menu' sx={{ m: 1, minWidth: 120}} size="small">
+            <InputLabel>Event type</InputLabel>
+            <Select value={eventType} onChange={handleEventChange}>
+            {eventTypeMenu.map((option) => (
+            <MenuItem key={option} value={option}>{option}</MenuItem>
+            ))}  
             </Select>
             </FormControl>
             </div>
             <div className='details-select'>
             <p>Details</p>
             <input></input>
-            </div>
-            <div className='event-type-select'>
-            <p>Event Type</p>
-            <FormControl sx={{ m: 1, minWidth: 120}} size="small">
-            <InputLabel id="select-label">Event type</InputLabel>
-            <Select
-                labelId="select-label"
-                id="simple-select"
-                value={eventType}
-                label="Select"
-                onChange={handleEventChange}
-            >
-                <MenuItem value={10}>Public Holiday</MenuItem>
-                <MenuItem value={20}>College event</MenuItem>
-                <MenuItem value={30}>Semester break</MenuItem>
-            </Select>
-            </FormControl>
             </div>
             <div className='add-event-button'>
                 <button>Submit</button>
