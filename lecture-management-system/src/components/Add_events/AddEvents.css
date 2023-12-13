@@ -59,7 +59,7 @@ p{
     align-items: center;
 }
 
-button {
+.add-event-button button {
     width: 100%;
     height: 60%;
     background-color: #8040B8;
