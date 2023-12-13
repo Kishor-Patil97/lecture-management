@@ -1,19 +1,11 @@
 .box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: sans-serif;
   font-size: 25px;
   font-weight: 400;
   color: #000000;
 }
 
-.div{
-  margin-bottom: 30px;
-}
-
 .textWrapper {
-  top: 80PX;
   font-size: 20px;
   font-weight: 400;
   position: relative;
@@ -54,4 +46,19 @@
 
 .value {
   margin-left: 20px;
+}
+
+.selectOption {
+  width: 200px;
+}
+
+.submitBtn {
+  background-color: #8D57D4 !important;
+  width: 100px;
+  color: white !important;
+  height: auto;
+}
+
+.div {
+  margin-bottom: 10%;
 }

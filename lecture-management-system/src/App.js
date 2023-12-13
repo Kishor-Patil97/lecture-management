@@ -4,12 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import { AddEvents } from './components/Add_events/AddEvents';
 import { Calendar } from './components/calendar/Calendar';
 import { Popup } from "./components/popup/Popup";
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+
 
 function App() {
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className="App">
         <BrowserRouter>
           <Routes>
@@ -19,7 +17,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-    </LocalizationProvider>
   );
 }
 
