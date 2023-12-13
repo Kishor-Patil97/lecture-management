@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { AddEvents } from './components/Add_events/AddEvents';
 import { Calendar } from './components/calendar/Calendar';
 import { Popup } from "./components/popup/Popup";
+import { Revertpopup } from "./components/revertreasonpopup/Revertpopup";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route path="/addEvent" element={<AddEvents />} />
             <Route path="/Calendar" element={<Calendar />} />
             <Route path="/Popup" element={<Popup />} />
+            <Route path="/Revertreason" element={<Revertpopup />} />
           </Routes>
         </BrowserRouter>
       </div>
