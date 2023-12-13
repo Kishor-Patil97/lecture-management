@@ -1,0 +1,64 @@
+.box {
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.textWrapper {
+  font-size: 20px;
+  font-weight: 400;
+  position: relative;
+}
+
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  padding: 7px;
+}
+
+.batch,
+.semester,
+.block {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  margin-right: 35px;
+}
+
+.button {
+  width: 100px;
+  background-color: #8D57D4;
+  color: white;
+  width: 100px;
+  background-color: #8D57D4;
+  color: white;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+}
+
+.block {
+  margin-bottom: 15px;
+}
+
+.value {
+  margin-left: 20px;
+}
+
+.selectOption {
+  width: 200px;
+}
+
+.submitBtn {
+  background-color: #8D57D4 !important;
+  width: 100px;
+  color: white !important;
+  height: auto;
+}
+
+.div {
+  margin-bottom: 10%;
+}
