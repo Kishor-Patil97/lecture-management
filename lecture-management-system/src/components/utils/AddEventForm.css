@@ -1,0 +1,72 @@
+.add-event-main{
+    display: grid;
+}
+
+.add-event-title{
+    color: rgb(2, 2, 52);
+    margin-left: 10px;
+}
+
+.add-event-options{
+    display: flex; 
+    justify-content: space-evenly;
+    background-color: rgb(222, 211, 234);
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+}
+input, Select{
+    width: 100%;
+    height: 50%;
+    align-self: center;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+p{
+    font: 1em sans-serif;
+}
+
+.menu{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.date-select{
+    display: flex; 
+}
+
+.date-select>input{
+    width: 100%;
+    height: 60%;
+}
+
+.time-select{
+    display: flex;
+   
+}
+
+.details-select{
+    display: flex;  
+}
+.event-type-select{
+    display: flex;
+    
+}
+
+.add-event-button{
+    display: flex;
+    align-items: center;
+}
+
+.add-event-button button {
+    width: 100%;
+    height: 60%;
+    background-color: #8040B8;
+    color: white;
+    border-radius: 5px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
