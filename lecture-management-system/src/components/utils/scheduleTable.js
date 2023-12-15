@@ -1,15 +1,9 @@
-import Checkbox from '@mui/material/Checkbox';
-import React from 'react';
-import { BsFillTrashFill } from "react-icons/bs";
-import './Table.css'
+import React from 'react'
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-
-export const Table = ({rows, deleteRow}) => {
+const scheduleTable = () => {
   return (
     <div className='table-wrapper'>
-        <table className='events-table'>
+        <table className='schedule-table'>
             <thead>
                 <tr>
                     <th>Start date</th>
@@ -50,4 +44,4 @@ export const Table = ({rows, deleteRow}) => {
   )
 }
 
-export default Table
+export default scheduleTable

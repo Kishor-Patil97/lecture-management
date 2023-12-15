@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './AddEvents.css';
 import {Navbar} from '../NavigationBar/Navbar';
 import {AddEventForm} from '../utils/AddEventForm';
-import {Table} from '../utils/Table';
+import {AddEventsTable} from '../utils/AddEventsTable';
 
  export const AddEvents = () => {
     const [events, setEvents] = useState([{
@@ -25,7 +25,7 @@ import {Table} from '../utils/Table';
         <>
         <Navbar/>
         <AddEventForm onSubmit={handleSubmit}/>
-        <Table rows={events} deleteRow={handleDelete}/>
+        <AddEventsTable rows={events} deleteRow={handleDelete}/>
         </>
     )
 }
