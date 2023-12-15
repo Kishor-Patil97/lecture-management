@@ -7,15 +7,17 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
 
-export const Filter = () => {
-    const [isChecked, setIsChecked] = useState(false);
+export const Filter = ({setNewSelectedOption}) => {
     const [batch, setBatch] = useState('');
     const [sem, setSem] = useState('');
     const [block, setBlock] = useState('');
 
+    const options = ['ACS', 'ADS'];
+    const [selectedOption, setSelectedOption] = useState(null);
 
-    const handleCheckboxToggle = () => {
-        setIsChecked(!isChecked);
+    const handleCheckboxToggle = (index) => {
+        setSelectedOption(options[index]);
+        setNewSelectedOption(options[index]);
     };
 
     const handleBatchChange = (event) => {
@@ -30,10 +32,9 @@ export const Filter = () => {
         setBlock(event.target.value);
     }
 
-    const options = ['ACS', 'ADS'];
     const batchItems = ['April 2022-2024', 'October 2022-2024', 'April 2023-2025', 'October 2023-2025'];
-    const semItems = ['1','2','3','4'];
-    const blockItems = ['1','2','3','4','5','6','7','8'];
+    const semItems = ['1', '2', '3', '4'];
+    const blockItems = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
     return (
         <div className="box">
@@ -41,15 +42,19 @@ export const Filter = () => {
                 <div className="div">Filters</div>
                 <span className="label">Study Program</span>
                 {options.map((value, index) => (
-                    <div className="optionWrapper" onClick={handleCheckboxToggle}>
-                        {isChecked ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
+                    <div
+                        key={index}
+                        className="optionWrapper"
+                        onClick={() => handleCheckboxToggle(index)}
+                    >
+                        {selectedOption === value ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
                         <span className="value">{value}</span>
                     </div>
                 ))}
                 <div className="batch">
                     <p className="name">Batch</p>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
-                        <Select className= "selectOption" value={batch} onChange={handleBatchChange}>
+                        <Select className="selectOption" value={batch} onChange={handleBatchChange}>
                             {batchItems.map((option) => (
                                 <MenuItem key={option} value={option}>{option}</MenuItem>
                             ))}
@@ -59,9 +64,9 @@ export const Filter = () => {
                 <div className="semester">
                     <p>Semester</p>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
-                        <Select className= "selectOption" value={sem} onChange={handleSemChange}>
+                        <Select className="selectOption" value={sem} onChange={handleSemChange}>
                             {semItems.map((option) => (
-                                <MenuItem key={option} value={option}>{option}</MenuItem> 
+                                <MenuItem key={option} value={option}>{option}</MenuItem>
                             ))}
                         </Select>
                     </FormControl >
