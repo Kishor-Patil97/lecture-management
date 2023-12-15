@@ -1,15 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/login" component={Login} />
-      </Switch>
-    </Router>
+    <div className="App">
+      <Login />
+    </div>
   );
-}
+};
 
 export default App;

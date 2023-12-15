@@ -1,48 +1,37 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import "./Login.css";
 
-class Login extends Component {
-  render() {
-    return (
-      <div className="container">
-        <h2>Login</h2>
-        <form>
-          <div className="form-group">
-            <label for="email">Email:</label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="Enter email"
-              name="email"
-            />
-          </div>
-          <div className="form-group">
-            <label for="pwd">Password:</label>
-            <input
-              type="password"
-              className="form-control"
-              id="pwd"
-              placeholder="Enter password"
-              name="pswd"
-            />
-          </div>
-          <div className="form-group form-check">
-            <label className="form-check-label">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                name="remember"
-              />{" "}
-              Remember me
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form>
-      </div>
-    );
-  }
-}
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    console.log("Login Successful");
+  };
+
+  return (
+    <div className="container">
+      <h1 className="loginTitle">Login</h1>
+      <input
+        className="input"
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
+      />
+      <input
+        className="input"
+        placeholder="Password"
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+      />
+      <button className="loginButton" onClick={handleLogin}>
+        Login
+      </button>
+      <div className="loginAsText">Login as:</div>
+      <div className="forgotPasswordText">Forgot Password?</div>
+    </div>
+  );
+};
 
 export default Login;
