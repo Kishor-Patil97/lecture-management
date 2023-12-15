@@ -4,16 +4,9 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
+require('./database/connection')
 
-require('./connection')
-
-const lectureplan = require('./Lecture');
-
-// app.post("/", async (req, res) => {
-//     let plan = new lectureplan(req.body);
-//     let result = await plan.save();
-//     res.status(201).json(result);
-// })
+const lectureplan = require('./models/Lecture');
 
 app.get('/', (req, res) => {
     res.send('Hello again');
