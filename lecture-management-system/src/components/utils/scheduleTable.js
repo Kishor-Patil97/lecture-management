@@ -1,32 +1,49 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { BsFillTrashFill } from "react-icons/bs";
+import './ScheduleTable.css';
 
-const scheduleTable = () => {
+export const ScheduleTable = ({lectureData, deleteRow}) => {
+  const [sortOrder, setSortOrder] = useState('asc');
+  const handleSort = () => {
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+
+  const sortedData = [...lectureData].sort((a, b) => {
+    const comparison = sortOrder === 'asc' ? a.week.localeCompare(b.week) : b.week.localeCompare(a.week);
+    return comparison;
+  });
+
+
+
   return (
-    <div className='table-wrapper'>
-        <table className='schedule-table'>
-            <thead>
-                <tr>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>Start time</th>
-                    <th>End time</th>
-                    <th>Event type</th>
-                    <th>Event details</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {rows.map((row, index) => {
-
-            return (
-              <tr key={index}>
-                <td>{row.startdate}</td>
-                <td>{row.enddate}</td>
-                <td>{row.startime}</td>
-                <td>{row.endtime}</td>
-                <td>{row.eventype}</td>
-                <td>{row.eventdetails}</td>
-                <td className="fit">
+    <div className='schedule-table-main'>
+    <table style={{marginLeft:'50px',marginTop: '10px', width:'980px'}}>
+      <thead>
+        <tr style={{backgroundColor:'lightgrey'}}>
+          <th>ID</th>
+          <th>Week{sortOrder === 'asc' ? ' ▼' : ' ▲'}</th>
+          <th>Date</th>
+          <th>Start time</th>
+          <th>End time</th>
+          <th>Description</th>
+          <th>Professors</th>
+          <th>Lecture Units</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        
+      <tbody>
+        {sortedData.map((row, index) => (
+          <tr key={index+1} >
+            <td>{index +1 }</td>
+            <td>{row.week}</td>
+            <td>{row.date}</td>
+            <td>{row.startTime}</td>
+            <td>{row.endTime}</td>
+            <td>{row.description}</td>
+            <td>{row.professors}</td>
+            <td>{row.lectureUnits}</td>
+            <td>
                   <span className="actions">
                   <BsFillTrashFill
                       className="delete-btn"
@@ -34,14 +51,12 @@ const scheduleTable = () => {
                     />
                   </span>
                 </td>
-              </tr>
-            );
-          })}
-            </tbody>
-        </table>
-      
+          </tr>
+        ))}
+      </tbody>
+    </table>
     </div>
-  )
+  );
 }
 
-export default scheduleTable
+export default ScheduleTable

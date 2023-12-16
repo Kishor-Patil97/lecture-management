@@ -29,7 +29,7 @@ export const AddEventsTable = ({rows, deleteRow}) => {
                 <td>{row.endtime}</td>
                 <td>{row.eventype}</td>
                 <td>{row.eventdetails}</td>
-                <td className="fit">
+                <td>
                   <span className="actions">
                   <BsFillTrashFill
                       className="delete-btn"
