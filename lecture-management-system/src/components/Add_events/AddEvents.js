@@ -5,7 +5,7 @@ import { AddEventForm } from '../utils/AddEventForm';
 import { AddEventsTable } from '../utils/AddEventsTable';
 import axios from 'axios';
 
-export const AddEvents = () => {
+export const AddEvents = ( {onEventAdd} ) => {
     const [events, setEvents] = useState([{
         startdate: "2023-12-25", enddate: "2023-12-25",
         startime: "09:30", endtime: "17:15",
@@ -37,7 +37,8 @@ export const AddEvents = () => {
         axios.post('http://localhost:4000/addEvents', eventdata)
             .then(response => {
                 console.log(response)
-                setEvents([...events, newEvent])
+                setEvents([...events, newEvent]);
+                onEventAdd(newEvent);
             })
             .catch(err => console.log(err))
     };
