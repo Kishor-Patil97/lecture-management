@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const lectureSchema = new mongoose.Schema({
     id: Number,
     studyprgm: String,
+    batch: String,
     block: Number,
     sem: Number,
     module: String,
