@@ -7,13 +7,17 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
 
-export const Filter = ({setNewSelectedOption}) => {
+export const Filter = ({ setNewSelectedOption, setNewBatch, handleReset }) => {
+
+    const options = ['ACS', 'ADS'];
+    const batchItems = ['April 2022-2024', 'October 2022-2024', 'April 2023-2025', 'October 2023-2025'];
+    const semItems = ['1', '2', '3', '4'];
+    const blockItems = ['1', '2', '3', '4', '5', '6', '7', '8'];
+
+    const [selectedOption, setSelectedOption] = useState(null);
     const [batch, setBatch] = useState('');
     const [sem, setSem] = useState('');
     const [block, setBlock] = useState('');
-
-    const options = ['ACS', 'ADS'];
-    const [selectedOption, setSelectedOption] = useState(null);
 
     const handleCheckboxToggle = (index) => {
         setSelectedOption(options[index]);
@@ -21,7 +25,9 @@ export const Filter = ({setNewSelectedOption}) => {
     };
 
     const handleBatchChange = (event) => {
-        setBatch(event.target.value);
+        const newBatch = event.target.value;
+        setBatch(newBatch);
+        setNewBatch(newBatch);
     }
 
     const handleSemChange = (event) => {
@@ -32,14 +38,19 @@ export const Filter = ({setNewSelectedOption}) => {
         setBlock(event.target.value);
     }
 
-    const batchItems = ['April 2022-2024', 'October 2022-2024', 'April 2023-2025', 'October 2023-2025'];
-    const semItems = ['1', '2', '3', '4'];
-    const blockItems = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    const resetFields = () => {
+        setBatch('');
+        setSem('');
+        setBlock('');
+        setSelectedOption('');
+        handleReset();
+    }
 
     return (
         <div className="box">
             <div className="textWrapper">
-                <div className="div">Filters</div>
+                <div className="div">Filters
+                </div>
                 <span className="label">Study Program</span>
                 {options.map((value, index) => (
                     <div
@@ -54,9 +65,9 @@ export const Filter = ({setNewSelectedOption}) => {
                 <div className="batch">
                     <p className="name">Batch</p>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
-                        <Select className="selectOption" value={batch} onChange={handleBatchChange}>
-                            {batchItems.map((option) => (
-                                <MenuItem key={option} value={option}>{option}</MenuItem>
+                        <Select className="selectOption" value={batch} onChange={(event) => handleBatchChange(event)}>
+                            {batchItems.map((value, index) => (
+                                <MenuItem key={index} value={value}>{value}</MenuItem>
                             ))}
                         </Select>
                     </FormControl >
@@ -81,7 +92,7 @@ export const Filter = ({setNewSelectedOption}) => {
                         </Select>
                     </FormControl >
                 </div>
-                <Button className="submitBtn">Submit</Button>
+                <Button className="submitBtn" onClick={resetFields}>Reset</Button>
             </div>
         </div>
     );

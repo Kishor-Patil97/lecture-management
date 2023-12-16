@@ -23,8 +23,13 @@ const names = [
     "Harris Glenn"
 ];
 
-export default function MultiSelect() {
+export default function MultiSelect({setProfName}) {
     const [selectedNames, setSelectedNames] = useState([]);
+    
+    const handleChange = (e) => {
+        setSelectedNames(e.target.value);
+        setProfName(e.target.value);
+    }
 
     return (
         <>
@@ -32,7 +37,7 @@ export default function MultiSelect() {
                 <Select
                     multiple
                     value={selectedNames}
-                    onChange={(e) => setSelectedNames(e.target.value)}
+                    onChange={(e) => handleChange(e)}
                     renderValue={(selected) => (
                         <Stack gap={1} direction="row" flexWrap="wrap">
                             {selected.map((value) => (
