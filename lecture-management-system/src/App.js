@@ -5,6 +5,7 @@ import { AddEvents } from './components/Add_events/AddEvents';
 import { Calendar } from './components/calendar/Calendar';
 import { Popup } from "./components/popup/Popup";
 import { Revertpopup } from "./components/revertreasonpopup/Revertpopup";
+import {SchedulePage} from './components/SchedulePage/SchedulePage'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/addEvent" element={<AddEvents />} />
+            <Route path="/schedule" element={< SchedulePage />} />
             <Route path="/Calendar" element={<Calendar />} />
             <Route path="/Popup" element={<Popup />} />
             <Route path="/Revertreason" element={<Revertpopup />} />
