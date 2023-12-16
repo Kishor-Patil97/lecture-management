@@ -14,17 +14,16 @@ export const AddEvents = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            const response = await axios.get('http://localhost:4000/getEvents');
-            setEvents(response.data);
-            console.log(response.data);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
+            try {
+                const response = await axios.get('http://localhost:4000/getEvents');
+                setEvents(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         };
-    
+
         fetchData();
-      }, []);
+    }, []);
 
     const handleSubmit = (newEvent) => {
         const eventdata = {
@@ -43,15 +42,14 @@ export const AddEvents = () => {
             .catch(err => console.log(err))
     };
 
-    const handleDelete = (targetIndex,eventId) => {
+    const handleDelete = (targetIndex, eventId) => {
         axios.delete(`http://localhost:4000/deleteEvent/${eventId}`)
             .then(response => {
-                console.log(response);
+                console.log(response.data);
                 setEvents(events.filter((_, index) => index !== targetIndex));
             })
             .catch(err => console.log(err));
     };
-
 
     return (
         <>
@@ -63,4 +61,3 @@ export const AddEvents = () => {
 }
 
 export default AddEvents;
-

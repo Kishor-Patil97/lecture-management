@@ -23,8 +23,8 @@ export const AddEventsTable = ({rows, deleteRow}) => {
 
             return (
               <tr key={index}>
-                <td>{row.startdate}</td>
-                <td>{row.enddate}</td>
+                <td>{new Date(row.startdate).toLocaleDateString('en-GB')}</td>
+                <td>{new Date(row.enddate).toLocaleDateString('en-GB')}</td>
                 <td>{row.startime}</td>
                 <td>{row.endtime}</td>
                 <td>{row.eventype}</td>
@@ -33,7 +33,7 @@ export const AddEventsTable = ({rows, deleteRow}) => {
                   <span className="actions">
                   <BsFillTrashFill
                       className="delete-btn"
-                      onClick={() => deleteRow(index)}
+                      onClick={() => deleteRow(index, row._id)}
                     />
                   </span>
                 </td>

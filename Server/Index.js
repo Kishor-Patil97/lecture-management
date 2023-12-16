@@ -53,9 +53,8 @@ app.post("/addEvents", async (req, res) => {
     }
 });
 
-//DeleteEvent
 app.delete("/deleteEvent/:eventId", async (req, res) => {
-    const eventId = req.params._id;
+    const eventId = req.params.eventId; 
     try {
         const deletedEvent = await eventdetail.findByIdAndDelete(eventId);
         if (!deletedEvent) {
