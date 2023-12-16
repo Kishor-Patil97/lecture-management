@@ -8,14 +8,26 @@ import './calendar.css';
 
 export const Calendar = () => {
   const [option, setOption] = useState('');
+  const [batch, setBatch] = useState('');
+
+  const handleBatchChange = (newBatch) => {
+    setBatch(newBatch);
+  };
+
   const events = [
     {
-      title: 'ACS',
-      start: '2023-12-01'
+      title: `${option} ${batch}`,
+      module: 'ADS',
+      batchC: 'April 2023-2025',
+      start: '2023-12-01',
+      sem: '2',
+      block: '2'
     },
     {
-      title: 'ACS',
-      start: '2023-12-07',
+      title: `${option} ${batch}`,
+      module: `ACS`,
+      start: '2023-12-07',  
+      batchC: 'April 2023-2025',
       end: '2023-12-10',
       color: 'purple' // override!
     },
@@ -32,9 +44,12 @@ export const Calendar = () => {
     }
   ]
 
-  const filteredEvents = option
-    ? events.filter((event) => event.title === option)
-    : events;
+  const filteredEvents = events.filter((event) => {
+      return (
+        (event.module === option) &&
+        (event.batchC === batch)        
+      );
+    });
     
   return (
     <>
@@ -56,7 +71,7 @@ export const Calendar = () => {
           </div>
         </Grid>
         <Grid item xs={6} className='filter'>
-          <Filter setNewSelectedOption={setOption} />
+          <Filter setNewSelectedOption={setOption} setNewBatch={handleBatchChange}/>
         </Grid>
       </Grid>
     </>

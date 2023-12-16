@@ -7,12 +7,13 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
 
-export const Filter = ({setNewSelectedOption}) => {
-    const [batch, setBatch] = useState('');
-    const [sem, setSem] = useState('');
-    const [block, setBlock] = useState('');
+export const Filter = ({ setNewSelectedOption, setNewBatch }) => {
 
     const options = ['ACS', 'ADS'];
+    const batchItems = ['April 2022-2024', 'October 2022-2024', 'April 2023-2025', 'October 2023-2025'];
+    const semItems = ['1', '2', '3', '4'];
+    const blockItems = ['1', '2', '3', '4', '5', '6', '7', '8'];
+
     const [selectedOption, setSelectedOption] = useState(null);
 
     const handleCheckboxToggle = (index) => {
@@ -21,7 +22,9 @@ export const Filter = ({setNewSelectedOption}) => {
     };
 
     const handleBatchChange = (event) => {
-        setBatch(event.target.value);
+        const newBatch = event.target.value;
+        setBatch(newBatch);
+        setNewBatch(newBatch);
     }
 
     const handleSemChange = (event) => {
@@ -32,9 +35,9 @@ export const Filter = ({setNewSelectedOption}) => {
         setBlock(event.target.value);
     }
 
-    const batchItems = ['April 2022-2024', 'October 2022-2024', 'April 2023-2025', 'October 2023-2025'];
-    const semItems = ['1', '2', '3', '4'];
-    const blockItems = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    const [batch, setBatch] = useState('');
+    const [sem, setSem] = useState('');
+    const [block, setBlock] = useState('');
 
     return (
         <div className="box">
@@ -54,9 +57,9 @@ export const Filter = ({setNewSelectedOption}) => {
                 <div className="batch">
                     <p className="name">Batch</p>
                     <FormControl sx={{ m: 1, minWidth: 120 }} size="small" >
-                        <Select className="selectOption" value={batch} onChange={handleBatchChange}>
-                            {batchItems.map((option) => (
-                                <MenuItem key={option} value={option}>{option}</MenuItem>
+                        <Select className="selectOption" value={batch} onChange={(event) => handleBatchChange(event)}>
+                            {batchItems.map((value, index) => (
+                                <MenuItem key={index} value={value}>{value}</MenuItem>
                             ))}
                         </Select>
                     </FormControl >

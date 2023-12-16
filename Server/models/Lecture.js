@@ -6,7 +6,7 @@ const lectureSchema = new mongoose.Schema({
     block: Number,
     sem: Number,
     module: String,
-    professors: String,
+    professors: Array,
     startdt: Date,
     enddt: Date,
     msg: String
