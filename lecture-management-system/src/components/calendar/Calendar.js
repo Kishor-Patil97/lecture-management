@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { Grid } from '@mui/material';
 import { Filter } from '../filter/Filter';
 import Navbar from '../NavigationBar/Navbar';
 import './calendar.css';
@@ -12,16 +11,18 @@ export const Calendar = () => {
   const [option, setOption] = useState('');
   const [batch, setBatch] = useState('');
   const [events, setEvents] = useState([]);
+  const [schedule, setSchedules] = useState([]);
+
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get('http://localhost:4000/getEvents');
         setEvents(response.data.map(event => ({
-          title: event.eventype,  
+          title: event.eventype,
           start: event.startdate,
           end: event.enddate,
-          color: 'purple',  
+          color: 'purple',
         })));
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -31,75 +32,63 @@ export const Calendar = () => {
     fetchEvents();
   }, []);
 
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/getplan');
+        setSchedules(response.data.map(schedule => ({
+          title: `${schedule.module} - ${schedule.studyprgm}`,
+          start: schedule.startdt,
+          end: schedule.enddt,
+          module: 'ACS',
+          batch: 'April 2023-2025',
+          color: 'orange',
+        })));
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+
+    fetchSchedule();
+  }, []);
+
   const handleBatchChange = (newBatch) => {
     setBatch(newBatch);
   };
 
-  // const events = [
-  //   {
-  //     title: `${option} ${batch}`,
-  //     module: 'ADS',
-  //     batchC: 'April 2023-2025',
-  //     start: '2023-12-01',
-  //     sem: '2',
-  //     block: '2'
-  //   },
-  //   {
-  //     title: `${option} ${batch}`,
-  //     module: `ACS`,
-  //     start: '2023-12-07',  
-  //     batchC: 'April 2023-2025',
-  //     end: '2023-12-10',
-  //     color: 'purple' // override!
-  //   },
-  //   {
-  //     title: 'ADS',
-  //     start: '2023-12-12',
-  //     end: '2023-12-13',
-  //     color: 'purple' // override!
-  //   },
-  //   {
-  //     title: 'ADS',
-  //     url: 'https://google.com/',
-  //     start: '2023-12-28'
-  //   }
-  // ]
-
-  const filteredEvents = events.filter((event) => {
-      return (
-        (event.module === option || option === '') &&
-        (event.batchC === batch || batch === '')        
-      );
-    });
+  const filteredEvents = events.concat(schedule).filter((schedule) => {
+    return (
+      (schedule.module === option || option === '') &&
+      (schedule.batch === batch || batch === '')
+    );
+  });
 
   const resetFilter = () => {
     setOption('');
     setBatch('');
   }
-    
+
   return (
     <>
       <Navbar />
-      <Grid container>
-        <Grid item xs={6} style={{ marginTop: '10px' }}>
-          <div className='calendar'>
-            <FullCalendar
-              plugins={[dayGridPlugin]}
-              initialView='dayGridMonth'
-              events={filteredEvents}
-              headerToolbar={{
-                center: 'prev,next',
-                left: 'title',
-                end: ''
-              }}
-              height={"80vh"}
-            />
-          </div>
-        </Grid>
-        <Grid item xs={6} className='filter'>
-          <Filter setNewSelectedOption={setOption} setNewBatch={handleBatchChange} handleReset = {resetFilter}/>
-        </Grid>
-      </Grid>
+      <div className='calendarView'>
+        <div className='calendar'>
+          <FullCalendar
+            plugins={[dayGridPlugin]}
+            initialView='dayGridMonth'
+            events={filteredEvents}
+            headerToolbar={{
+              center: 'prev,next',
+              left: 'title',
+              end: ''
+            }}
+            height={"90vh"}
+          />
+        </div>
+        <div className='filter'>
+          <Filter setNewSelectedOption={setOption} setNewBatch={handleBatchChange} handleReset={resetFilter} />
+        </div>
+      </div>
     </>
   );
 };

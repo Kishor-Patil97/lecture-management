@@ -53,7 +53,8 @@ export const Popup = () => {
             msg: msg
         }
         //http://localhost:4000/
-        axios.post('https://sheet.best/api/sheets/17bb0ae7-020e-443e-b4ee-04d987ec2bcc', postData)
+        //https://sheet.best/api/sheets/17bb0ae7-020e-443e-b4ee-04d987ec2bcc
+        axios.post('http://localhost:4000/', postData)
             .then(response => console.log(response))
             .catch(err => console.log(err))
         handlePopup();
