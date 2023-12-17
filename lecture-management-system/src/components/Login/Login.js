@@ -4,9 +4,24 @@ import "./Login.css";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedUserType, setSelectedUserType] = useState("");
 
   const handleLogin = () => {
-    console.log("Login Successful");
+    if (selectedUserType === "Lecture Manager") {
+      if (username === "SRHlectureManager" && password === "iamlm") {
+        console.log("Lecture Manager Login Successful");
+      } else {
+        console.log("Invalid Lecture Manager credentials");
+      }
+    } else if (selectedUserType === "Professor") {
+      if (username === "SRHprofessor" && password === "iamprof") {
+        console.log("Professor Login Successful");
+      } else {
+        console.log("Invalid Professor credentials");
+      }
+    } else {
+      console.log("Please select a user type");
+    }
   };
 
   return (
@@ -20,12 +35,20 @@ const Login = () => {
                 type="radio"
                 name="userType"
                 value="Lecture Manager"
-                checked
+                checked={selectedUserType === "Lecture Manager"}
+                onChange={() => setSelectedUserType("Lecture Manager")}
               />{" "}
               Lecture Manager
             </label>
             <label className="selection">
-              <input type="radio" name="userType" value="Professor" /> Professor
+              <input
+                type="radio"
+                name="userType"
+                value="Professor"
+                checked={selectedUserType === "Professor"}
+                onChange={() => setSelectedUserType("Professor")}
+              />{" "}
+              Professor
             </label>
           </div>
           <div className="input-styles">
