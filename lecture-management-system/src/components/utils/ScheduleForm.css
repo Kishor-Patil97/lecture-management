@@ -60,3 +60,19 @@
     margin-right: 10px;
     margin-top: 20px;
 }
+
+.dataPlan {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+    height: 35px;
+}
+ .dataPlan label {
+    margin-right: 10px;
+ }
+
+ .dataPlan p {
+    background: white;
+    width: 80px;
+ }

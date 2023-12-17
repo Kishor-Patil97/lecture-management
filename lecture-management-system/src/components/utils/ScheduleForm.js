@@ -71,12 +71,18 @@ export const ScheduleForm = ({ onSubmit }) => {
 
         {eventData && (
           <>
-            <label>Start Date:</label>
-            <p>{new Date(eventData[1].startdt).toLocaleDateString('en-GB')}</p>
-            <label>End Date:</label>
-            <p>{new Date(eventData[1].enddt).toLocaleDateString('en-GB')}</p>
-            <label>Message:</label>
-            <p>{eventData[1].msg}</p>
+            <div class="dataPlan">
+              <label>Start Date:</label>
+              <p>{new Date(eventData[1].startdt).toLocaleDateString('en-GB')}</p>
+            </div>
+            <div class="dataPlan">
+              <label>End Date:</label>
+              <p>{new Date(eventData[1].enddt).toLocaleDateString('en-GB')}</p>
+            </div>
+            <div class="dataPlan">
+              <label>Message:</label>
+              <p>{eventData[1].msg}</p>
+            </div>
           </>
         )}
         <h3>Schedule Lecture</h3><br />
