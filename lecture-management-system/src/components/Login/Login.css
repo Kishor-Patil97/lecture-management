@@ -1,5 +1,4 @@
-html,
-body {
+.login-bg {
     height: 100%;
     margin: 0;
     background-image: url('../../assets/lmbg.jpg');
@@ -8,7 +7,7 @@ body {
     background-repeat: no-repeat;
 }
 
-body {
+.login-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +15,7 @@ body {
     margin: 0;
 }
 
-.container {
+.login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,13 +27,13 @@ body {
     max-width: 100vh;
 }
 
-.loginTitle {
+.login-title {
     font-size: 24px;
     color: #8040B8;
     margin-bottom: 20px;
 }
 
-.input {
+.input-field {
     height: 40px;
     width: 100%;
     margin-bottom: 10px;
@@ -44,7 +43,7 @@ body {
     border-radius: 5px;
 }
 
-.loginButton {
+.login-button {
     background-color: #8040B8;
     padding: 10px;
     width: 30%;
@@ -54,11 +53,7 @@ body {
     margin-bottom: 20px;
 }
 
-.loginAsText {
-    margin-bottom: 20px;
-}
-
-.forgotPasswordText {
+.forgot-password-text {
     width: 100%;
     display: flex;
     color: red;
@@ -67,11 +62,11 @@ body {
     margin: 10px;
 }
 
-.login_selections{
+.selection {
     width: auto;
     margin: 40px;
 }
 
-.login_radio_buttons{
+.radio-buttons {
     margin-bottom: 20px;
 }
