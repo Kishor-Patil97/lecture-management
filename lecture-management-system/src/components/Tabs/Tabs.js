@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Tabs.css";
 
-const Tabs = () => {
+export const Tabs = () => {
   useEffect(() => {
     const defaultOpen = document.querySelector(".defaultOpen");
     if (defaultOpen) {
