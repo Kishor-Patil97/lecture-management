@@ -28,7 +28,6 @@ export const ScheduleForm = ({ onSubmit }) => {
       try {
         const response = await axios.get('http://localhost:4000/getPlan');
         setEventData(response.data);
-        console.log(response.data)
       } catch (error) {
         console.error('Error fetching event data:', error);
       }
@@ -46,7 +45,6 @@ export const ScheduleForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onSubmit(lecFormState);
   };
 
@@ -69,13 +67,17 @@ export const ScheduleForm = ({ onSubmit }) => {
   return (
     <div className='schedule-form-wrapper'>
       <div className='schedule-form'>
-        <label></label><br />
-        <label>Start Date:</label><br />
-        <p></p>
-        <label>End Date:</label><br />
-        <p></p>
-        <label>Message:</label><br />
-        <p></p>
+
+        {eventData && (
+          <>
+            <label>Start Date:</label>
+            <p>{new Date(eventData[3].startdt).toLocaleDateString('en-GB')}</p>
+            <label>End Date:</label>
+            <p>{new Date(eventData[3].enddt).toLocaleDateString('en-GB')}</p>
+            <label>Message:</label>
+            <p>{eventData[3].msg}</p>
+          </>
+        )}
         <h3>Schedule Lecture</h3><br />
         <label>Week</label><br />
         <Select className="Select" style={{ fontSize: 'small' }} name='week' value={lecFormState.week} onChange={handleChange}>

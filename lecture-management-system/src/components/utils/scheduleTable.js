@@ -9,7 +9,9 @@ export const ScheduleTable = ({lectureData, deleteRow}) => {
   };
 
   const sortedData = [...lectureData].sort((a, b) => {
-    const comparison = sortOrder === 'asc' ? a.week.localeCompare(b.week) : b.week.localeCompare(a.week);
+    const aWeek = a.week || ''; 
+    const bWeek = b.week || '';
+    const comparison = sortOrder === 'asc' ? aWeek.localeCompare(b.week) : bWeek.localeCompare(a.week);
     return comparison;
   });
 
