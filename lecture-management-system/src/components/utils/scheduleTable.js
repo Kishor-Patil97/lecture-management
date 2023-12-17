@@ -13,7 +13,7 @@ export const ScheduleTable = ({lectureData, deleteRow}) => {
     const bWeek = b.week || '';
     const comparison = sortOrder === 'asc' ? aWeek.localeCompare(b.week) : bWeek.localeCompare(a.week);
     return comparison;
-  });
+  }); 
 
 
 
