@@ -1,9 +1,7 @@
 .form {
     width: 600px;
     height: 450px;
-    /* background-color: rgb(222, 211, 234); */
     background: linear-gradient(180deg, rgb(128, 64, 184) 0%, rgba(121, 27, 203, 0.46) 100%);
-    /* background-color: rgba(255, 255, 255, 1); */
     padding: 12px;
     border-radius: 5px;
     font: 1em sans-serif;

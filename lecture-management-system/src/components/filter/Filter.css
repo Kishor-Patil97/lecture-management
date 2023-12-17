@@ -1,13 +1,6 @@
 .box {
-  /* font-family: sans-serif; */
-  /* font-size: 25px;
-  font-weight: 400; */
-  /* color: #000000; */
-  /* padding: 29px; */
   border-radius: 10px;
   border: 1rem black;
-  /* background-color: rgb(235, 230, 237); */
-  /* box-shadow: 0px 10px 10px #ccc; */
   margin: 15px;
 }
 
@@ -16,8 +9,9 @@
 }
 
 .textWrapper {
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 500;
   position: relative;
 }
 
@@ -39,13 +33,10 @@
   margin-right: 35px;
 }
 
-.button {
-  width: 100px;
-  background-color: #8D57D4;
-  color: white;
-  width: 100px;
-  background-color: #8D57D4;
-  color: white;
+.submitBtn{
+  background-color: #8D57D4 !important;
+  width: 80px;
+  color: white !important ;
   padding: 7px;
   border: none;
   border-radius: 4px;
@@ -63,12 +54,6 @@
   width: 200px;
 }
 
-.submitBtn {
-  background-color: #8D57D4 !important;
-  width: 100px;
-  color: white !important;
-  height: auto;
-}
 
 .div {
   margin-bottom: 10%;
