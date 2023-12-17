@@ -23,7 +23,7 @@ export const ScheduleTable = ({lectureData, deleteRow}) => {
       <thead>
         <tr style={{backgroundColor:'lightgrey'}}>
           <th>ID</th>
-          <th>Week{sortOrder === 'asc' ? ' ▼' : ' ▲'}</th>
+          <th onClick={handleSort}>Week{sortOrder === 'asc' ? ' ▼' : ' ▲'}</th>
           <th>Date</th>
           <th>Start time</th>
           <th>End time</th>

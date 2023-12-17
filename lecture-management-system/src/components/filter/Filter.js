@@ -49,7 +49,8 @@ export const Filter = ({ setNewSelectedOption, setNewBatch, handleReset }) => {
     return (
         <div className="box">
             <div className="textWrapper">
-                <div className="div">Filters
+                <div className="div">
+                    <h3>Filters</h3>
                 </div>
                 <span className="label">Study Program</span>
                 {options.map((value, index) => (
