@@ -27,6 +27,7 @@ export const ScheduleForm = ({ onSubmit }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:4000/getPlan');
+        console.log(response.data);
         setEventData(response.data);
       } catch (error) {
         console.error('Error fetching event data:', error);
@@ -71,11 +72,11 @@ export const ScheduleForm = ({ onSubmit }) => {
         {eventData && (
           <>
             <label>Start Date:</label>
-            <p>{new Date(eventData[3].startdt).toLocaleDateString('en-GB')}</p>
+            <p>{new Date(eventData[1].startdt).toLocaleDateString('en-GB')}</p>
             <label>End Date:</label>
-            <p>{new Date(eventData[3].enddt).toLocaleDateString('en-GB')}</p>
+            <p>{new Date(eventData[1].enddt).toLocaleDateString('en-GB')}</p>
             <label>Message:</label>
-            <p>{eventData[3].msg}</p>
+            <p>{eventData[1].msg}</p>
           </>
         )}
         <h3>Schedule Lecture</h3><br />
