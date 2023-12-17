@@ -11,7 +11,7 @@ export const Calendar = () => {
   const [option, setOption] = useState('');
   const [batch, setBatch] = useState('');
   const [events, setEvents] = useState([]);
-  const [schedule, setSchedules] = useState([]);
+  const [schedules, setSchedules] = useState([]);
 
 
   useEffect(() => {
@@ -40,8 +40,8 @@ export const Calendar = () => {
           title: `${schedule.module} - ${schedule.studyprgm}`,
           start: schedule.startdt,
           end: schedule.enddt,
-          module: 'ACS',
-          batch: 'April 2023-2025',
+          module: schedule.studyprgm,
+          batch: schedule.batch,
           color: 'orange',
         })));
       } catch (error) {
@@ -56,10 +56,10 @@ export const Calendar = () => {
     setBatch(newBatch);
   };
 
-  const filteredEvents = events.concat(schedule).filter((schedule) => {
+  const filteredEvents = events.concat(schedules).filter((schedules) => {
     return (
-      (schedule.module === option || option === '') &&
-      (schedule.batch === batch || batch === '')
+      (schedules.module === option || option === '') &&
+      (schedules.batch === batch || batch === '')
     );
   });
 

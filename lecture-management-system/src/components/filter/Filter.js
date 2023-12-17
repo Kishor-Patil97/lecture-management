@@ -9,7 +9,7 @@ import { Button } from "@mui/material";
 
 export const Filter = ({ setNewSelectedOption, setNewBatch, handleReset }) => {
 
-    const options = ['ACS', 'ADS'];
+    const options = ['Applied Computer Science', 'Applied Data Science'];
     const batchItems = ['April 2022-2024', 'October 2022-2024', 'April 2023-2025', 'October 2023-2025'];
     const semItems = ['1', '2', '3', '4'];
     const blockItems = ['1', '2', '3', '4', '5', '6', '7', '8'];
