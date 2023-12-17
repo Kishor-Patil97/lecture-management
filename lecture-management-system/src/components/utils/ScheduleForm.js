@@ -23,12 +23,13 @@ const professors = [
 
 export const ScheduleForm = ({ onSubmit }) => {
   const [eventData, setEventData] = useState(null);
+  const [planData, setPlantData] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:4000/getPlan');
-        console.log(response.data);
-        setEventData(response.data);
+        setPlantData(response.data);
       } catch (error) {
         console.error('Error fetching event data:', error);
       }
@@ -36,17 +37,48 @@ export const ScheduleForm = ({ onSubmit }) => {
 
     fetchData();
   }, []);
+  
   const [lecFormState, setLecFormState] = useState(
-    { id: "", week: '', date: '', startTime: '', endTime: '', description: '', professors: '', lectureUnits: '' },
+    { id: "", week: '', date: '', startTime: '', endTime: '', description: '', professors: '', lectureUnits: '',conflictMessage: ''},
   );
 
   const handleChange = (e) => {
     setLecFormState({ ...lecFormState, [e.target.name]: e.target.value });
   };
 
+  //Logic to handle conflict
+  useEffect(() => {
+    const fetchEventData = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/getEvents');
+        setEventData(response.data);
+        console.log(response.data[0]);
+      } catch (error) {
+        console.error('Error fetching event data:', error);
+      }
+    };
+    fetchEventData();
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(lecFormState);
+    const conflictFound = eventData.some((event) => {
+      const eventStartDate = new Date(event.startdate).toLocaleDateString('en-GB');
+      const eventEndDate = new Date(event.enddate).toLocaleDateString('en-GB');
+      const userDate = new Date(lecFormState.date).toLocaleDateString('en-GB');
+      console.log(`call on submit ${eventStartDate} ${eventEndDate} ${userDate}`);
+
+      return userDate >= eventStartDate && userDate <= eventEndDate;
+    });
+
+    setLecFormState({
+      ...lecFormState,
+      conflictMessage: conflictFound ? 'Lecture cannot be scheduled on that date as there is an event on that date.' : '',
+    });
+
+    if (!conflictFound) {
+      onSubmit(lecFormState);
+    }
   };
 
   const lectureUnits = () => {
@@ -69,19 +101,19 @@ export const ScheduleForm = ({ onSubmit }) => {
     <div className='schedule-form-wrapper'>
       <div className='schedule-form'>
 
-        {eventData && (
+        {planData && (
           <>
             <div class="dataPlan">
               <label>Start Date:</label>
-              <p>{new Date(eventData[1].startdt).toLocaleDateString('en-GB')}</p>
+              <p>{new Date(planData[0].startdt).toLocaleDateString('en-GB')}</p>
             </div>
             <div class="dataPlan">
               <label>End Date:</label>
-              <p>{new Date(eventData[1].enddt).toLocaleDateString('en-GB')}</p>
+              <p>{new Date(planData[0].enddt).toLocaleDateString('en-GB')}</p>
             </div>
             <div class="dataPlan">
               <label>Message:</label>
-              <p>{eventData[1].msg}</p>
+              <p>{planData[0].msg}</p>
             </div>
           </>
         )}
@@ -117,7 +149,7 @@ export const ScheduleForm = ({ onSubmit }) => {
         <label >Lecture Units:</label>
         <input type='number' value={lectureUnits()} onChange={handleChange} readOnly></input>
         <label>Conflict message:</label>
-        <p></p>
+        <p className='conflictMsg'>{lecFormState.conflictMessage}</p>
         <div className='schedule-form-button'>
           <button onClick={handleSubmit}>Add</button>
         </div>
