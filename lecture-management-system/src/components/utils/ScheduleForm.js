@@ -81,7 +81,7 @@ export const ScheduleForm = ({ onSubmit }) => {
             </div>
             <div class="dataPlan">
               <label>Message:</label>
-              <p>{eventData[1].msg}</p>
+              <p style={{color:'red'}}>{eventData[1].msg}</p>
             </div>
           </>
         )}
