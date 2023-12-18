@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar } from '../NavigationBar/Navbar'
 import '../SchedulePage/SchedulePage.css'
-import { ScheduleTable } from '../utils/ScheduleTable';
+import { ScheduleTable } from '../utils/scheduleTable';
 import { ScheduleForm } from '../utils/ScheduleForm'
 import axios from 'axios';
 
