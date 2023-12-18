@@ -1,0 +1,65 @@
+.divrevert {
+    width: 600px;
+    height: 200px;
+    border: 1px solid;
+    background: linear-gradient(180deg, rgb(128, 64, 184) 0%, rgba(121, 27, 203, 0.46) 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    position: absolute;
+    top: 200px;
+    left: 420px;
+    border-radius: 5px;
+}
+
+
+.textarea {
+    border-radius: 5px;
+    padding: 0 0 0 1px;
+    margin: 4px;
+    border-color: rgb(124 113 113 / 64%);
+    resize: none;
+    margin-bottom: 2%;
+}
+
+.buttonRevert {
+    padding: 7px !important;
+    width: 100px !important;
+    border-radius: 5px !important;
+    border: unset !important;
+    margin-right: 55px;
+}
+.buttonCancel{
+    padding: 7px !important;
+    width: 100px !important;
+    border-radius: 5px !important;
+    border: unset !important;
+    margin-left: 55px;
+}
+
+.buttonRevert>button{
+    background-color: #8D57D4 !important;
+    color: white !important;
+    margin-left: 10px;
+    background-color: #8040B8;
+    color: white;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+.buttonCancel>button {
+    margin-right: 10px !important;
+    background-color: rgb(0, 0, 0) !important;
+    margin-left: 10px;
+    background-color: #8040B8;
+    color: white;
+    padding: 6px;
+    border-radius: 3px;
+}
+.btns {
+    position: relative;
+    left: 30%;
+}

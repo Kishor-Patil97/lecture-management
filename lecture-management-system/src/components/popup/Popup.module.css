@@ -1,0 +1,77 @@
+.form {
+    width: 600px;
+    height: 450px;
+    background: linear-gradient(180deg, rgb(128, 64, 184) 0%, rgba(121, 27, 203, 0.46) 100%);
+    padding: 12px;
+    border-radius: 5px;
+    font: 1em sans-serif;
+    border: 1px solid rgb(2, 2, 52);
+    position: absolute;
+    top: 150px;
+    left: 450px;
+    color: white;
+}
+.container {
+    margin-left: 2%;
+}
+.formLM {
+    width: 268px;
+    margin: 4px !important;
+}
+
+.margin {
+    margin: 4px !important;
+}
+
+.date input {
+    height: 40px;
+    width: 268px;
+    border: 1px solid rgb(124 113 113 / 64%);
+    margin: 4px;
+}
+
+.textarea {
+    border-radius: 5px;
+    padding: 0 0 0 1px;
+    margin: 4px;
+    border-color: rgb(124 113 113 / 64%);
+    resize: none;
+    margin-bottom: 2%;
+}
+
+.submitBtn, .cancelBtn {
+    height: auto !important;
+    width: 150px !important;
+}
+
+.submitBtn {
+    background-color: #8D57D4 !important;
+    color: white !important;
+    margin-right: 3% !important;
+}
+.cancelBtn{
+    background-color: white !important;
+    color: black !important;
+    margin-right: 2% !important;
+}
+.multiselect {
+    width: 570px;
+}
+
+.row,
+.addProf,
+.date {
+    margin-bottom: 2% !important;
+}
+
+.buttondiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.formLM,
+.margin {
+    div:first-child {
+        background: white;
+    }
+}
