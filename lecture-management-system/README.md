@@ -1,3 +1,6 @@
+Docker Image For Frontend can be accessed in below mentioned DockerHub Repository:
+https://hub.docker.com/repository/docker/kishor97p/plmsync/general
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
