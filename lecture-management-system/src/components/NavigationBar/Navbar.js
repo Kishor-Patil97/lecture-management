@@ -7,23 +7,27 @@ import { Avatar } from '@mui/material'
 export const Navbar = () => {
  
   return (
+    <div className='nav-container'>
     <div className='nav-main'>
     <div className='nav-logo'>
-    <img src={Logo}/>
+        <img src={Logo} alt='logo'/>
     </div>
     <div className='nav-menu'>
     <nav>
         <ul>
-          <Link to='/userlogin/diary'><li><a href="#">Home</a></li></Link>
-          <Link><li><a href="#">Schedule</a></li></Link>
-          <li><a href="#">Status</a></li>
+          <Link to='/home'>
+            <li><a href="#">Home</a></li></Link>
+            <Link to='/tabs'><li><a href="#">Status</a></li></Link>
+            <Link to='/addEvent'><li><a href="#">Events</a></li></Link>
         </ul>
       </nav>
     </div>
        <div className='userProfile'>
-       <Avatar src="/broken-image.jpg" />
-       <Link to='/'><div className='signout'></div></Link>
+       <Link to='/'>
+       <Avatar src="/broken-image.jpg" alt='user'/>
+       </Link>
       </div>
+    </div>
     </div>
   )
 
