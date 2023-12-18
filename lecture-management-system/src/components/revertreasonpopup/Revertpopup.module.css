@@ -9,9 +9,10 @@
     align-items: center;
     flex-direction: column;
     font-family: sans-serif;
-    position: relative;
-    top: 80px;
+    position: absolute;
+    top: 200px;
     left: 420px;
+    border-radius: 5px;
 }
 
 
@@ -24,21 +25,39 @@
     margin-bottom: 2%;
 }
 
-.buttonCancel, .buttonRevert {
+.buttonRevert {
     padding: 7px !important;
     width: 100px !important;
     border-radius: 5px !important;
     border: unset !important;
+    margin-right: 55px;
+}
+.buttonCancel{
+    padding: 7px !important;
+    width: 100px !important;
+    border-radius: 5px !important;
+    border: unset !important;
+    margin-left: 55px;
 }
 
-.buttonRevert {
+.buttonRevert>button{
     background-color: #8D57D4 !important;
     color: white !important;
+    margin-left: 10px;
+    background-color: #8040B8;
+    color: white;
+    padding: 6px;
+    border-radius: 3px;
 }
 
-.buttonCancel {
+.buttonCancel>button {
     margin-right: 10px !important;
-    background-color: white !important;
+    background-color: rgb(0, 0, 0) !important;
+    margin-left: 10px;
+    background-color: #8040B8;
+    color: white;
+    padding: 6px;
+    border-radius: 3px;
 }
 .btns {
     position: relative;

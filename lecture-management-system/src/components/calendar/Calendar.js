@@ -73,6 +73,7 @@ export const Calendar = () => {
       <Navbar />
       <div className='calendarView'>
         <div className='calendar'>
+        <h1>Calendar Overview</h1><br/>
           <FullCalendar
             plugins={[dayGridPlugin]}
             initialView='dayGridMonth'
@@ -82,7 +83,7 @@ export const Calendar = () => {
               left: 'title',
               end: ''
             }}
-            height={"90vh"}
+            height={"80vh"}
           />
         </div>
         <div className='filter'>

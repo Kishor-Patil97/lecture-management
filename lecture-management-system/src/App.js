@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/tabs" element={<Tabs />} />
           <Route path="/addEvent" element={<AddEvents />} />
           <Route path="/schedule" element={<SchedulePage />} />
-          <Route path="/Calendar" element={<Calendar />} />
+          <Route path="/home" element={<Calendar />} />
           <Route path="/Popup" element={<Popup />} />
           <Route path="/Revertreason" element={<Revertpopup />} />
         </Routes>

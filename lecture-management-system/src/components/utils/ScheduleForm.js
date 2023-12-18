@@ -73,7 +73,7 @@ export const ScheduleForm = ({ onSubmit }) => {
 
     setLecFormState({
       ...lecFormState,
-      conflictMessage: conflictFound ? 'Lecture cannot be scheduled on that date as there is an event on that date.' : '',
+      conflictMessage: conflictFound ? 'You already have a different schedule planned on this day. Please change the date/time.' : '',
     });
 
     if (!conflictFound) {
@@ -106,14 +106,14 @@ export const ScheduleForm = ({ onSubmit }) => {
             <div class="dataPlan">
               <label>Start Date:</label>
               <p>{new Date(planData[0].startdt).toLocaleDateString('en-GB')}</p>
-            </div>
+            </div><br/>
             <div class="dataPlan">
               <label>End Date:</label>
               <p>{new Date(planData[0].enddt).toLocaleDateString('en-GB')}</p>
-            </div>
+            </div><br/>
             <div class="dataPlan">
               <label>Message:</label>
-              <p>{planData[0].msg}</p>
+              <p style={{color:'red'}}>{planData[0].msg}</p>
             </div>
           </>
         )}

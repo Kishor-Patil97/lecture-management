@@ -8,25 +8,24 @@
 .calendar {
     padding: 11px;
     font-size: small;
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 10px;
     white-space: nowrap;
-    width: 90%;
+    width: 60%;
+    height: 100%;
     margin: auto;
     overflow-x: auto;
-    background-color: rgb(230, 217, 237);
+    background-color: rgb(255, 255, 255);
     box-shadow: 0px 10px 10px #ccc;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     margin-left: 15px;
 }
 .filter {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: rgb(241, 225, 254);
-    box-shadow: 10px 10px 10px #ccc;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 10px 10px 10px  #ccc;
 }
 
 .fc-theme-standard td, .fc-theme-standard th {
