@@ -44,7 +44,9 @@ export const ScheduleForm = ({ onSubmit }) => {
 
   const handleChange = (e) => {
     setLecFormState({ ...lecFormState, [e.target.name]: e.target.value });
+    lectureUnits();
   };
+
 
   //Logic to handle conflict
   useEffect(() => {
@@ -85,14 +87,14 @@ export const ScheduleForm = ({ onSubmit }) => {
     if ((lecFormState.startTime === '09:30' && lecFormState.endTime === '11:00') || (lecFormState.startTime === '11:15' && lecFormState.endTime === '12:45') ||
       (lecFormState.startTime === '14:00' && lecFormState.endTime === '15:30') || (lecFormState.startTime === '15:45' && lecFormState.endTime === '17:15') ||
       (lecFormState.startTime === '17:30' && lecFormState.endTime === '19:00') || (lecFormState.startTime === '19:15' && lecFormState.endTime === '20:45')) {
-      return 2;
+      return lecFormState.lectureUnits=2;
     } else if ((lecFormState.startTime === '09:30' && lecFormState.endTime === '12:45') || (lecFormState.startTime === '14:00' && lecFormState.endTime === '17:15') ||
       (lecFormState.startTime === '17:30' && lecFormState.endTime === '12:45')) {
-      return 4;
+      return lecFormState.lectureUnits=4;
     } else if ((lecFormState.startTime === '09:30' && lecFormState.endTime === '17:15')) {
-      return 8;
+      return lecFormState.lectureUnits=8;
     } else {
-      return 0;
+      return lecFormState.lectureUnits=0;
     }
   }
 
@@ -147,7 +149,7 @@ export const ScheduleForm = ({ onSubmit }) => {
         <label>Description</label><br />
         <input type='type' name='description' value={lecFormState.description} onChange={handleChange}></input><br />
         <label >Lecture Units:</label>
-        <input type='number' value={lectureUnits()} onChange={handleChange} readOnly></input>
+        <input type='number'name='lectureUnits' value={lecFormState.lectureUnits} onChange={handleChange}></input>
         <label>Conflict message:</label>
         <p className='conflictMsg'>{lecFormState.conflictMessage}</p>
         <div className='schedule-form-button'>
