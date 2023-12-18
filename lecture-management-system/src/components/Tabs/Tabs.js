@@ -1,7 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState} from "react";
 import "./Tabs.css";
+import {Navbar} from '../NavigationBar/Navbar'
+import { Link } from "react-router-dom";
+import { Popup } from "../popup/Popup";
+import { Revertpopup } from "../revertreasonpopup/Revertpopup";
 
 export const Tabs = () => {
+  const [showRevert, setShowRevert] = useState(false);
+
   useEffect(() => {
     const defaultOpen = document.querySelector(".defaultOpen");
     if (defaultOpen) {
@@ -30,11 +36,20 @@ export const Tabs = () => {
     }
   };
 
+  const handleClick = () => {     
+    setShowRevert(true);   
+  };
+
   return (
-    <div className="tab-container">
+    <div className="status-main">
+      <Popup/>
+      <Navbar/>
+      <div className="status-tabs">
+    
+      <div className="tab-container">
       <button
         className="tablink defaultOpen"
-        onClick={() => openPage("InProgress", null, "red")}
+        onClick={() => openPage("InProgress",null, "red")}
       >
         In Progress
       </button>
@@ -55,34 +70,34 @@ export const Tabs = () => {
         <table>
           <tbody>
             <tr>
-              <td>
-                <a
-                  href="https://example.com/acs2022-2024"
-                  target="_blank"
+              <th>
+                <Link
+                  href="ACS_2023-25_Block6_UX Design and Implementation"
+                  to='/schedule'
                   rel="noopener noreferrer"
                 >
-                  ACS 2022 - 2024
-                </a>
-              </td>
-              <td>
+                  ACS_2023-25_Block6_UX Design and Implementation_Sem3
+                </Link>
+              </th>
+              <th>
                 <button>Edit</button>
-                <button>Complete</button>
-              </td>
+                <button onClick={()=>openPage("Completed")}>Complete</button>
+              </th>
             </tr>
             <tr>
-              <td>
+              <th>
                 <a
                   href="https://example.com/acs2023-2025"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ACS 2023 - 2025
+                  ACS_2023-25_Block5_IT_Security_Sem3
                 </a>
-              </td>
-              <td>
+              </th>
+              <th>
                 <button>Edit</button>
                 <button>Complete</button>
-              </td>
+              </th>
             </tr>
           </tbody>
         </table>
@@ -92,34 +107,20 @@ export const Tabs = () => {
         <table>
           <tbody>
             <tr>
-              <td>
-                <a
-                  href="https://example.com/acs2022-2024"
+              <th>
+              <a
+                  href="ACS_2023-25_Block6_UX Design and Implementation"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ACS 2022 - 2024
+                  ACS_2023-25_Block6_UX Design and Implementation_Sem3
                 </a>
-              </td>
-              <td>
-                <button>Revert</button>
+              </th>
+              <th>
+                <button onClick={handleClick}>Revert</button>
+                {showRevert && <Revertpopup />}
                 <button>Approve</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://example.com/acs2023-2025"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ACS 2023 - 2025
-                </a>
-              </td>
-              <td>
-                <button>Revert</button>
-                <button>Approve</button>
-              </td>
+              </th>
             </tr>
           </tbody>
         </table>
@@ -129,37 +130,27 @@ export const Tabs = () => {
         <table>
           <tbody>
             <tr>
-              <td>
-                <a
-                  href="https://example.com/acs2022-2024"
+              <th>
+              <a
+                  href="ACS_2023-25_Block6_UX Design and Implementation"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ACS 2022 - 2024
+                  ACS_2023-25_Block6_UX Design and Implementation_Sem3
                 </a>
-              </td>
-              <td>
+              </th>
+              <th>
                 <button>Export</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://example.com/acs2023-2025"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ACS 2023 - 2025
-                </a>
-              </td>
-              <td>
-                <button>Export</button>
-              </td>
+              </th>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+      </div>
+    </div>
+
+  
   );
 };
 

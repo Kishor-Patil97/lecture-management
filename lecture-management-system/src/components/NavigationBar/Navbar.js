@@ -9,22 +9,23 @@ export const Navbar = () => {
   return (
     <div className='nav-container'>
     <div className='nav-main'>
-      <div className='nav-logo'>
+    <div className='nav-logo'>
         <img src={Logo} alt='logo'/>
     </div>
     <div className='nav-menu'>
     <nav>
         <ul>
-          <Link to='/userlogin/diary'>
+          <Link to='/home'>
             <li><a href="#">Home</a></li></Link>
-            <Link><li><a href="#">Status</a></li></Link>
-            <Link><li><a href="#">Events</a></li></Link>
+            <Link to='/tabs'><li><a href="#">Status</a></li></Link>
+            <Link to='/addEvent'><li><a href="#">Events</a></li></Link>
         </ul>
       </nav>
     </div>
        <div className='userProfile'>
+       <Link to='/'>
        <Avatar src="/broken-image.jpg" alt='user'/>
-       <Link to='/'><div className='signout'></div></Link>
+       </Link>
       </div>
     </div>
     </div>

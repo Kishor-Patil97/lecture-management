@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
+import {LandingPageNav} from '../NavigationBar/LandingPageNav'
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -26,9 +28,10 @@ export const Login = () => {
 
   return (
     <div className="login-bg">
+       <LandingPageNav/>
       <div className="login-box">
         <div className="login-container">
-          <h1 className="login-title">Login as:</h1>
+          <h3 className="login-title">Login as:</h3>
           <div className="radio-buttons">
             <label className="selection">
               <input
@@ -58,7 +61,7 @@ export const Login = () => {
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
               value={username}
-            />
+            /><br/>
             <label>Password: </label>
             <input
               className="input-field"
@@ -69,8 +72,9 @@ export const Login = () => {
             />
           </div>
           <div className="forgot-password-text">Forgot Password?</div>
-          <button className="login-button" onClick={handleLogin}>
-            Login
+        
+            <button className="login-button" onClick={handleLogin}>
+            <Link className="login-button"  to='/home'>Login</Link>
           </button>
         </div>
       </div>

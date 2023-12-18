@@ -60,16 +60,11 @@ export const Popup = () => {
         handlePopup();
     }
 
-    const handleDownload = () => {
-       const googleSheetLink = 'https://docs.google.com/spreadsheets/d/1KYXmmLWOV6KTFuHJ_d5_9hxzfyKxOPyQDWMJW5yP_pw/edit?usp=sharing';
-        window.open(googleSheetLink, '_blank');
-    };
-
     return (
         <>
             {showPopup && (
                 <div className={styles.form}>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className='overlay'>
                         <Grid container className={styles.container}>
                             <Grid item sm={6} className={styles.row}>
                                 <div>Batch:</div>
@@ -140,7 +135,6 @@ export const Popup = () => {
                             <Grid item sm={12} className={styles.buttondiv}>
                                 <Button className={styles.cancelBtn} onClick={handlePopup}>Cancel</Button>
                                 <Button className={styles.submitBtn} type='submit'>Create</Button>
-                                <Button className={styles.submitBtn} onClick={handleDownload}>download</Button>
                             </Grid>
                         </Grid>
                     </form>

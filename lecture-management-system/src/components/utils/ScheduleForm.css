@@ -66,22 +66,26 @@
     flex-direction: row;
     align-items: center;
     margin-left: 10px;
-    /* height: 35px; */
+    margin-bottom: -20px;
+    margin-top: 4px;
+
 }
  .dataPlan label {
     margin-right: 10px;
+    margin-bottom: -14px;
+    margin-top: -20px;
  }
 
  .dataPlan p {
-    background: white;
     width: 110px;
+    margin-top: 8px;
+    font-size: small;
  }
 
  .conflictMsg{
     width: 200px;
-    background-color: white;
-    border: 1px solid black;
-    margin: 0 0 0 10px;
+    margin-left: 10px;
     color: red;
-    height: 10%;
+    height: 6%;
+    font-size: small;
  }

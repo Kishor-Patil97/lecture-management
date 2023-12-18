@@ -48,6 +48,7 @@
   nav ul li {
     justify-content: flex-start;
     margin-right: 50px;
+    margin-left: 20px;
     white-space: nowrap;
   }
   
@@ -63,8 +64,9 @@
   .userProfile{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     margin-right:10px;
+    width: 100px;
   }
 
   

@@ -21,24 +21,25 @@
     align-items: center;
     background-color: white;
     padding: 20px;
+    width: 365px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 100vh;
 }
 
 .login-title {
-    font-size: 24px;
-    color: #8040B8;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #040007;
     margin-bottom: 20px;
 }
 
 .input-field {
     height: 40px;
-    width: 100%;
+    width: 235px;
     margin-bottom: 10px;
     margin-top: 10px;
-    padding-left: 10px;
+    margin-left: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -59,14 +60,23 @@
     color: red;
     justify-content: flex-end;
     cursor: pointer;
-    margin: 10px;
+    margin-right: 36px;
+    margin-top: 0px;
+    margin-bottom: 22px;
 }
 
 .selection {
     width: auto;
-    margin: 40px;
+    margin: 25px;
+    font-family: sans-serif;
+    font-weight: 600;
 }
 
 .radio-buttons {
     margin-bottom: 20px;
+}
+
+.input-styles>label{
+    font-weight: 600;
+    font-family: sans-serif;
 }
