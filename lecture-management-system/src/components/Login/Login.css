@@ -1,6 +1,10 @@
 .login-bg {
     height: 100%;
+    width: 100%;
     margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
     background-image: url('../../assets/lmbg.jpg');
     background-size: cover;
     background-position: center;
