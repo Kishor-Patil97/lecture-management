@@ -96,6 +96,7 @@ export const ScheduleForm = ({ onSubmit }) => {
     } else {
       return lecFormState.lectureUnits=0;
     }
+  
   }
 
 
@@ -149,7 +150,7 @@ export const ScheduleForm = ({ onSubmit }) => {
         <label>Description</label><br />
         <input type='type' name='description' value={lecFormState.description} onChange={handleChange}></input><br />
         <label >Lecture Units:</label>
-        <input type='number'name='lectureUnits' value={lecFormState.lectureUnits} onChange={handleChange}></input>
+        <input type='number'name='lectureUnits' value={lectureUnits()} onChange={handleChange}></input>
         <label>Conflict message:</label>
         <p className='conflictMsg'>{lecFormState.conflictMessage}</p>
         <div className='schedule-form-button'>
